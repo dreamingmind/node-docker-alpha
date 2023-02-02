@@ -2,4 +2,7 @@ built by following this page:
 
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
 
-simply copy/pasted the code
+simply copy/pasted the code and added the yml file
+
+other info at https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md
+

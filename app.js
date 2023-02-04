@@ -1,3 +1,8 @@
+const express = require('express');
+const request = require("express");
+// App
+const app = express();
+const router = express.Router();
 
 logger = require('./logger')
 
@@ -40,5 +45,16 @@ const scanner = function(obj) {
 
 scanner(Why);
 scanner(When);
+// scanner(router);
 
+for (let prop in router) {
+    // if (!(typeof router[prop] == 'function')) {
+    if (true) {
+        console.log(prop);
+        // console.log(typeof router[prop]);
+        // console.log(prop + ': ' + router[prop]);
+    }
+}
+
+module.exports.scanner = scanner;
 

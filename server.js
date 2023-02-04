@@ -1,7 +1,8 @@
 'use strict';
 
 const express = require('express');
-const {request} = require("express");
+const request = require("express");
+// const logger = require('app');
 
 // Constants
 const PORT = 8080;
@@ -9,9 +10,10 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
+const router = express.Router();
+
 let counter = 0;
 app.request.url
-
 
 app.get('/', (req, res) => {
     res.send(counter + "<h1>Hello World</h1><p> url: " + req.url + "</p> ");
@@ -29,7 +31,14 @@ app.get('/index', (req, res) => {
     counter = counter + 1;
     outputer = null;
 });
-
+for (let prop in router) {
+    // if (!(typeof router[prop] == 'function')) {
+    if (true) {
+        console.log(typeof router[prop]);
+        // console.log(prop + ': ' + router[prop]);
+    }
+}
 app.listen(PORT, HOST, () => {
     console.log(`Running on http://${HOST}:${PORT}`);
 });
+

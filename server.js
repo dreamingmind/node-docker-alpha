@@ -9,15 +9,25 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
+let counter = 0;
 app.request.url
-app.get('/', (req, res) => {
-    res.send("<h1>Hello World</h1><p> url: " + req.url + "</p> ");
 
+
+app.get('/', (req, res) => {
+    res.send(counter + "<h1>Hello World</h1><p> url: " + req.url + "</p> ");
+    counter = counter + 1;
 });
 
 app.get('/index', (req, res) => {
-    res.send("<h1>Brave New World </h1><p> url: " + req.url + "</p> ");
-
+    let outputer = require('./app');
+    res.send(
+        counter
+        + "<h1>Brave New World </h1>"
+        + "<p> url: " + req.url + "</p> "
+        + '<p>' + outputer.output() + '</p>'
+    );
+    counter = counter + 1;
+    outputer = null;
 });
 
 app.listen(PORT, HOST, () => {

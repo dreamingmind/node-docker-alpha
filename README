@@ -6,3 +6,5 @@ simply copy/pasted the code and added the yml file
 
 other info at https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md
 
+Express Server/Router/Request/Response
+https://expressjs.com/en/4x/api.html#router

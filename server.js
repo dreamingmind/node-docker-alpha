@@ -31,13 +31,6 @@ app.get('/index', (req, res) => {
     counter = counter + 1;
     outputer = null;
 });
-for (let prop in router) {
-    // if (!(typeof router[prop] == 'function')) {
-    if (true) {
-        console.log(typeof router[prop]);
-        // console.log(prop + ': ' + router[prop]);
-    }
-}
 app.listen(PORT, HOST, () => {
     console.log(`Running on http://${HOST}:${PORT}`);
 });

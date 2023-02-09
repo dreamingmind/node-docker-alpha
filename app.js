@@ -1,5 +1,4 @@
 const express = require('express');
-const request = require("express");
 // App
 const app = express();
 const router = express.Router();
@@ -45,16 +44,44 @@ const scanner = function(obj) {
 
 scanner(Why);
 scanner(When);
-// scanner(router);
 
-for (let prop in router) {
-    // if (!(typeof router[prop] == 'function')) {
-    if (true) {
-        console.log(prop);
-        // console.log(typeof router[prop]);
-        // console.log(prop + ': ' + router[prop]);
-    }
-}
+// for (let prop in router) {
+//     if (true) {
+//         console.log(prop);
+//     }
+// }
+
 
 module.exports.scanner = scanner;
 
+let thing = new Promise((resolve, reject) => {
+    setTimeout(() => reject("done!"), 1000);
+})
+    .then((result)=>{
+            console.log(`first resolve`);
+            scanner(this);
+            return 'result of first resolve';
+        },
+        (result)=>{
+            console.log('first reject');
+            scanner(this);
+            return 'result of first reject';
+        }
+    );
+thing
+    .then((result)=>{
+        console.log('second resolve');
+        scanner(thing);
+        return 'result of second resolve';
+    },
+        (result)=>{
+            console.log('second reject');
+            scanner(this);
+            return 'result of second reject';
+        }
+    )
+    .finally(()=>{
+        console.log('final');
+        scanner(this);
+    })
+;

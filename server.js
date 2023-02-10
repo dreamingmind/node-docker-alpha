@@ -9,7 +9,6 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
-let counter = 0;
 app.request.url
 
 //routes

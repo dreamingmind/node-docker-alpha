@@ -41,4 +41,5 @@ const scanner = function(obj) {
 scanner(Why);
 scanner(When);
 
+module.exports = scanner;
 

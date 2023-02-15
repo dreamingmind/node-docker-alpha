@@ -1,9 +1,13 @@
 
 logger = require('./logger')
 
-console.log(logger);
+// console.log(logger)
+
+logger.log("\n\n\n================== start output from app.js =========================");
 
 logger.log('message');
+
+
 
 let output = function() {
     return 'this is the output';
@@ -43,3 +47,4 @@ scanner(When);
 
 module.exports = scanner;
 
+logger.log('================== done with output from app.js =========================');

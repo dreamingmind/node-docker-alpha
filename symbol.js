@@ -1,14 +1,18 @@
+logger = require('./logger')
+
+// logger.log(logger)
 const debug = require('./app.js');
+logger.log('================== start output from symbol.js =========================');
 
 let s1 = Symbol('desc');
-console.log(s1);
-console.log(typeof s1);
+logger.log(s1);
+logger.log(typeof s1);
 
 let s2 = Symbol('desc');
-console.log(s2);
-console.log(typeof s2);
+logger.log(s2);
+logger.log(typeof s2);
 
-console.log(s1 === s2);
+logger.log(s1 === s2);
 
 
 
@@ -30,15 +34,16 @@ When[s2] = 'b1'
 debug(Why);
 debug(When);
 
-console.log(Why[s1]);
-console.log(Why.s1);
-console.log(Why[s2]);
-console.log(Why.s2);
-console.log(When[s1]);
-console.log(When.s1);
-console.log(When[s2]);
-console.log(When.s2);
+logger.log(Why[s1]);
+logger.log(Why.s1);
+logger.log(Why[s2]);
+logger.log(Why.s2);
+logger.log(When[s1]);
+logger.log(When.s1);
+logger.log(When[s2]);
+logger.log(When.s2);
 
 Why.s1 = 99;
 debug(Why);
-console.log(Why[s1]);
+logger.log(Why[s1]());
+logger.log('================== end output from symbol.js =========================');

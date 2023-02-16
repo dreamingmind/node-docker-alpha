@@ -25,6 +25,14 @@ const Method = function (input) {
     this.desc = `the value was ${input}`;
 }
 
+let staticObj = {
+    "sym": Symbol.for('id'),
+};
+
+
+
+
+
 let Why = new Method('Why');
 let When = new Method('When');
 
@@ -45,6 +53,7 @@ const scanner = function(obj) {
 scanner(Why);
 scanner(When);
 
-module.exports = scanner;
+exports.scanner = scanner;
+exports.statObj = staticObj;
 
 logger.log('================== done with output from app.js =========================');

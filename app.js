@@ -57,3 +57,7 @@ exports.scanner = scanner;
 exports.statObj = staticObj;
 
 logger.log('================== done with output from app.js =========================');
+
+let text = 'blah/foo/';
+
+console.log(text.split('/'));

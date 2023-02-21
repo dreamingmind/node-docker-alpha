@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const outputer = require("../app");
+const inflector = require("../utility/Inflect");
 let counter = 0;
 
 const objectReader = function(obj) {
@@ -30,6 +31,15 @@ router.get('/*', (req, res) => {
     let [controller, action, ...rest] = req.params[0].split('/');
 
     // deriveParams(req.params[0]);
+    // let ControllerModule = require(`../controller/${inflector.controllerize(controller)}`);
+    const ControllerModule = require('../controller/FooController');
+
+    const Controller = new ControllerModule(req, res);
+
+    res.send(
+        Controller[action]()
+    )
+    /**
     res.send(
         counter
         + "<h1>Brave New World </h1>"
@@ -41,7 +51,10 @@ router.get('/*', (req, res) => {
         + '<p>' + `Controller: ${controller}`+ '</p>'
         + '<p>' + `Action: ${action}`+ '</p>'
         + '<p>' + `Pass: ${rest}`+ '</p>'
+        + '<p>' + `ControllerClassName: ${inflector.controllerize(controller)}`+ '</p>'
+
     );
+     */
     counter = counter + 1;
     outputer = null;
 });

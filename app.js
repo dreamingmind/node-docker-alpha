@@ -1,3 +1,4 @@
+const express = require("express");
 
 logger = require('./logger')
 
@@ -6,6 +7,9 @@ logger = require('./logger')
 logger.log("\n\n\n================== start output from app.js =========================");
 
 logger.log('message');
+
+const app = express();
+
 
 
 
@@ -61,3 +65,6 @@ logger.log('================== done with output from app.js ====================
 let text = 'blah/foo/';
 
 console.log(text.split('/'));
+
+// console.log(express.application.set('view', 'somevalue'));
+console.log(app.set('view cache', true));

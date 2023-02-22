@@ -9,6 +9,7 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
+console.log(app.set('view cache', false));
 app.request.url
 
 //routes

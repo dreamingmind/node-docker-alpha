@@ -11,7 +11,7 @@ class FooController {
     }
 
     edit(id) {
-        return `<h1>edit id: ${id} from Foo Controller</h1>`;
+        return `<h1>edit id: ${id} from Foo Controller NEW</h1>`;
     }
 
     index() {
@@ -20,3 +20,5 @@ class FooController {
 
 
 }
+
+module.exports = FooController;

@@ -21,8 +21,7 @@ const deriveParams = function(str) {
 }
 
 router.get('/', (req, res) => {
-    res.send(counter + "<h1>Hello World</h1><p> url: " + req.url + "</p> ");
-    counter = counter + 1;
+    res.send(express.application.get('view'));
 });
 
 router.get('/*', (req, res) => {
@@ -31,14 +30,14 @@ router.get('/*', (req, res) => {
     let [controller, action, ...rest] = req.params[0].split('/');
 
     // deriveParams(req.params[0]);
-    // let ControllerModule = require(`../controller/${inflector.controllerize(controller)}`);
-    const ControllerModule = require('../controller/FooController');
+    let ControllerModule = require(`../controller/${inflector.controllerize(controller)}`);
+    let Controller = new ControllerModule(req, res);
+    let output = Controller[action](...rest);
+    ControllerModule = {};
+    Controller = {};
 
-    const Controller = new ControllerModule(req, res);
+    res.send(output);
 
-    res.send(
-        Controller[action]()
-    )
     /**
     res.send(
         counter

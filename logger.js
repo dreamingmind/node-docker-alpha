@@ -1,8 +1,13 @@
-var url = 'http://mylogger.io/log';
 
-function log(message) {
-    // send request
-    console.log(message);
+let url = 'http://mylogger.io/log';
+const Event = require('events');
+
+class Logger extends Event{
+    log(message) {
+        console.log(message);
+        this.emit('logCalled');
+    }
+
 }
 
-module.exports.log = log;
+module.exports = Logger;

@@ -1,8 +1,11 @@
 
-const Logger = require('./logger');
-const logger = new Logger();
+const http = require('http');
 
-logger.addListener('logCalled', () => {console.log('event heard')});
-logger.on('logCalled', () => {console.log('again heard')})
-logger.log('here we go');
+const server = http.createServer((req, res) => {
+    res.write('Hello World');
+    res.end();
+});
 
+server.listen(3000);
+
+console.log('Listening on port 3000...');

@@ -1,0 +1,7 @@
+{
+  "name": "express-demo-development",
+  "mail": {
+    "server": "mail.express.development",
+    "password": "not really this"
+  }
+}
